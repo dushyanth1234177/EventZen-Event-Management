@@ -4,86 +4,6 @@ package com.example.events.Config;
 
 
 
-//import com.example.events.Services.UserService;
-//import com.example.events.Filters.JwtAuthenticationFilter;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.authentication.ProviderManager;
-//import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.http.SessionCreationPolicy;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.security.web.SecurityFilterChain;
-//import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-//import org.springframework.web.cors.CorsConfiguration;
-//import org.springframework.web.cors.CorsConfigurationSource;
-//import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-//
-//import java.util.Arrays;
-//
-//@Configuration
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true) // Add this line
-//public class SecurityConfig {
-//
-//    private final UserService userService;
-//    private final JwtAuthenticationFilter jwtAuthenticationFilter;
-//
-//    public SecurityConfig(UserService userService, JwtAuthenticationFilter jwtAuthenticationFilter) {
-//        this.userService = userService;
-//        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-//    }
-//
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(csrf -> csrf.disable()) // Disable CSRF for JWT
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/api/auth/**").permitAll() // Allow public access to auth endpoints
-//                        .requestMatchers("/api/customer/venues").permitAll() // Public access
-//                        .anyRequest().authenticated() // Secure all other endpoints
-//                )
-//                .sessionManagement(session -> session
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Make the session stateless
-//                );
-//
-//        // Add JWT filter before UsernamePasswordAuthenticationFilter
-//        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//
-//        return http.build();
-//    }
-//
-//    @Bean
-//    public AuthenticationManager authenticationManager() {
-//        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-//        authProvider.setUserDetailsService(userService);
-//        authProvider.setPasswordEncoder(passwordEncoder());
-//        return new ProviderManager(authProvider);
-//    }
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//
-//    @Bean
-//    public CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration config = new CorsConfiguration();
-//        config.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-//        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-//        config.setAllowedHeaders(Arrays.asList("*"));
-//
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/api/**", config);
-//        return source;
-//    }
-//}
-
-
 
 
 import com.example.events.Services.UserService;
@@ -159,14 +79,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList(
-                "http://localhost:3000", // React dev server
-                "http://localhost:5173",// Vite default port (if using)
+                "http://localhost:3000",
+                "http://localhost:5173",
                 "http://localhost:5174"
         ));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Added OPTIONS
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); 
         config.setAllowedHeaders(Arrays.asList("*"));
-        config.setAllowCredentials(true); // Important for JWT cookies
-        config.setExposedHeaders(Arrays.asList("Authorization")); // Expose JWT header
+        config.setAllowCredentials(true); 
+        config.setExposedHeaders(Arrays.asList("Authorization")); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/api/**", config);
