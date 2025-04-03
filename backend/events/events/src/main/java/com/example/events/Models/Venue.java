@@ -23,7 +23,7 @@ public class Venue {
 
 //    @OneToMany(mappedBy = "venue"  )
 //    private List<Vendor> preferredVendors = new ArrayList<>();
-// In Venue.java
+
 @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
 @JsonIgnoreProperties("venue")  // Add this
 private List<Vendor> preferredVendors = new ArrayList<>();
