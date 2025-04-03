@@ -18,17 +18,17 @@ public class Vendor {
 
     private String name;
     private String contactEmail;
-    private String serviceType; // e.g., "Catering", "AV", "Decor"
+    private String serviceType; 
     private String contractDetails;
 
     // Many-to-Many with Event
     @ManyToMany(mappedBy = "vendors")
-    @JsonIgnoreProperties("vendors") // Add this
+    @JsonIgnoreProperties("vendors") 
     private List<Event> events = new ArrayList<>();
 
-    // Many-to-One with Venue (optional)
+    // Many-to-One with Venue 
     @ManyToOne
     @JoinColumn(name = "venue_id")
-    @JsonIgnoreProperties("preferredVendors")  // Add this
+    @JsonIgnoreProperties("preferredVendors")
     private Venue venue;
 }
