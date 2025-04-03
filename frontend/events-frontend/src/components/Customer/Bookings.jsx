@@ -3,7 +3,7 @@ import { useState } from 'react';
 function Bookings() {
   const [activeTab, setActiveTab] = useState('upcoming');
   
-  // Mock data since backend isn't implemented
+ 
   const mockBookings = {
     upcoming: [
       {
@@ -39,7 +39,7 @@ function Bookings() {
   };
   
   const handleCancel = (id) => {
-    // In a real app, this would call the backend
+  
     alert(`Booking ${id} would be cancelled `);
   };
   
