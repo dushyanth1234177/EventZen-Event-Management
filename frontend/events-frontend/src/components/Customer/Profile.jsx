@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Profile() {
-  // Mock data since backend isn't implemented
+  
   const [profile, setProfile] = useState({
     name: "Alex Johnson",
     email: "alex.johnson@example.com",
@@ -21,7 +21,7 @@ function Profile() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, this would call the backend
+   
     alert('Profile would be saved ');
     setIsEditing(false);
   };
