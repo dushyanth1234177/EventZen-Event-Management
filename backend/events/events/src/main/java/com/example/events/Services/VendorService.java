@@ -31,7 +31,7 @@ public class VendorService {
 //        return vendorRepository.save(vendor);
 //    }
 
-    // Add Vendor (with optional venue link)
+   
 
     public Vendor addVendor(Vendor vendor, Long venueId) {
 
@@ -40,7 +40,7 @@ public class VendorService {
                     .orElseThrow(() -> new RuntimeException("Venue not found"));
 
             vendor.setVenue(venue);
-            venue.getPreferredVendors().add(vendor);  // Critical!
+            venue.getPreferredVendors().add(vendor);  
 
             // Save venue to cascade the operation
             venueRepository.save(venue);
