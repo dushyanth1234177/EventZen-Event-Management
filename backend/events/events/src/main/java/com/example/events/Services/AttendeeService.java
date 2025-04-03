@@ -1,7 +1,5 @@
 package com.example.events.Services;
-//
-//
-//
+
 import com.example.events.Models.Attendee;
 import com.example.events.Models.Event;
 import com.example.events.Repositories.AttendeeRepository;
