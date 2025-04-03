@@ -26,7 +26,7 @@ public class Event {
     @ManyToOne
     @JoinColumn(name = "venue_id", nullable = false)
     private Venue venue;
-    //attendee relation ge change maadiddu
+    
 
 //    @ManyToMany(mappedBy = "events")
 //    private List<Attendee> attendees;
@@ -35,7 +35,7 @@ public class Event {
         name = "event_vendor",
         joinColumns = @JoinColumn(name = "event_id"),
         inverseJoinColumns = @JoinColumn(name = "vendor_id"))
-@JsonIgnoreProperties("events") // Add this
+@JsonIgnoreProperties("events")
 private List<Vendor> vendors = new ArrayList<>();
 
     @ManyToMany
